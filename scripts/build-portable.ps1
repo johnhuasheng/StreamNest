@@ -3,9 +3,12 @@
 $repoRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..')).Path
 Set-Location -LiteralPath $repoRoot
 $stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
+$version = (Get-Content -LiteralPath (Join-Path $repoRoot 'package.json') -Raw | ConvertFrom-Json).version
+if ($version -notmatch '^\d+\.\d+\.\d+$') { throw 'package.json 版本号格式无效' }
 $stage = Join-Path $repoRoot "outputs\StreamNest-Windows-x64-$stamp"
-$archive = "$stage.zip"
+$archive = Join-Path $repoRoot "outputs\StreamNest-Windows-x64-v$version.zip"
 if (Test-Path -LiteralPath $stage) { throw "发布目录已存在：$stage" }
+if (Test-Path -LiteralPath $archive) { throw "发布 ZIP 已存在：$archive" }
 
 $nodeCommand = Get-Command node.exe -ErrorAction Stop
 $ffmpegCommand = Get-Command ffmpeg.exe -ErrorAction Stop
