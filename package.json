@@ -1,6 +1,6 @@
 {
   "name": "streamnest-video-downloader",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "engines": {
     "node": ">=22.13.0"
@@ -13,7 +13,7 @@
     "typecheck": "tsc --noEmit --incremental false",
     "test:platforms": "node scripts/validate-platforms.mjs",
     "monitor": "node scripts/monitor-services.mjs",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern build --ignore-pattern outputs --ignore-pattern backend/.venv",
     "build:portable": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-portable.ps1"
   },
   "dependencies": {
