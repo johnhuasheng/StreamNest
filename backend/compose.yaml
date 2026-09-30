@@ -1,0 +1,15 @@
+services:
+  resolver:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8788:8788"
+    env_file:
+      - .env
+    read_only: true
+    tmpfs:
+      - /tmp:size=2g,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL

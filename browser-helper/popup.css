@@ -1,0 +1,12 @@
+* { box-sizing: border-box; }
+body { margin: 0; width: 320px; color: #f7f7f8; background: #17191f; font: 14px/1.55 system-ui, "Microsoft YaHei", sans-serif; }
+main { padding: 22px; }
+.brand { display: flex; align-items: center; gap: 9px; }
+.brand span { color: #ff5548; letter-spacing: -4px; }
+.brand strong { font-size: 17px; }
+h1 { margin: 24px 0 8px; font-size: 19px; }
+p { margin: 0; color: #c8cbd3; }
+small { display: block; margin-top: 12px; color: #858b98; }
+button, a.button { display: block; width: 100%; margin-top: 20px; padding: 11px 14px; border: 0; border-radius: 9px; color: white; background: #f45140; font: inherit; font-weight: 700; text-align: center; text-decoration: none; cursor: pointer; }
+button:disabled { opacity: .55; cursor: wait; }
+#sync-status { min-height: 2.4em; margin-top: 9px; font-size: 12px; }

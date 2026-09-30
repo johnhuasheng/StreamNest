@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "StreamNest 浏览器助手",
+  "version": "0.3.6",
+  "description": "捕获抖音/快手公开 MP4；经用户主动点击，可仅向本机服务同步 B 站域名登录会话。",
+  "permissions": ["tabs", "webRequest", "cookies"],
+  "host_permissions": [
+    "http://localhost:3000/*",
+    "http://127.0.0.1:3000/*",
+    "http://127.0.0.1:8788/*",
+    "https://*.bilibili.com/*",
+    "*://*.douyin.com/*",
+    "*://*.douyinvod.com/*",
+    "*://*.douyinpic.com/*",
+    "*://*.byteimg.com/*",
+    "*://*.snssdk.com/*",
+    "*://*.kuaishou.com/*",
+    "*://*.gifshow.com/*",
+    "*://*.kwaicdn.com/*",
+    "*://*.kwimgs.com/*",
+    "*://*.yximgs.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "StreamNest 浏览器助手",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://localhost:3000/*",
+        "http://127.0.0.1:3000/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://*.douyin.com/*",
+        "*://*.kuaishou.com/*",
+        "*://*.gifshow.com/*"
+      ],
+      "js": ["platform.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

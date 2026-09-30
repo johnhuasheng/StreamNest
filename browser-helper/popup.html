@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>StreamNest 浏览器助手</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <div class="brand"><span>▮▮</span><strong>StreamNest</strong></div>
+      <h1>浏览器助手已启用</h1>
+      <p>抖音、快手可直接在下载管理器里解析。B 站高清画质需要你主动同步本机已登录的 B 站会话。</p>
+      <small>只读取 B 站域名 Cookie 并交给 127.0.0.1 的 StreamNest 服务；不发送到网页、聊天或其他服务器。最多保留 8 小时，网页可随时断开。</small>
+      <button id="sync-bilibili">同步本机 B 站会话</button>
+      <p id="sync-status" role="status" aria-live="polite">助手脚本未启动。请在 Edge 扩展管理页重新加载助手。</p>
+      <a class="button" id="open-manager" href="http://localhost:3000/" target="_blank" rel="noopener">打开下载管理器</a>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
